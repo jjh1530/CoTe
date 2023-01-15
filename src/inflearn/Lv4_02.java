@@ -13,7 +13,6 @@ public class Lv4_02 {
 		for( char x : a.toCharArray()) {
 			map.put(x, map.getOrDefault(0, 1)+1);
 		}
-		System.out.println(map.get('A'));
 		for( char x : b.toCharArray()) {
 			if (!map.containsKey(x)|| map.get(x) ==0) { // 키 값이 다 포함되어있지 않거나 0이면
 				return "NO";
