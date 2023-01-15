@@ -21,9 +21,8 @@ public class Lv3_02 {
 			}else {
 				p1++;
 			}
-				
-			
 		}
+	
 		
 		return answer;
 	}

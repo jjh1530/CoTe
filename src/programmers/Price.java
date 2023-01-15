@@ -23,9 +23,10 @@ public class Price {
 		}
 		int answer = count;
 		System.out.println(count);*/
-		int[] d= {1,3,2,5,4};
-		int budget = 9;
-		int answer =0;
+		int[] budgets= {1,3,2,5,4};
+		int M = 9;
+		
+		/*
 		int min =0;
 		int max = 0;
 		
@@ -50,7 +51,7 @@ public class Price {
 					max = mid -1;
 				}
 			}
-		}
+		}*/
  	}
 
 }

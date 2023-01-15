@@ -22,7 +22,7 @@ public class Price2 {
 			int sum = 0;
 			for(int i =0; i<budgets.length; i++) {
 				if (budgets[i] > mid) {  //각 값들이 미드보다 크면
-					sum+= mid;    //미드값을  sum에
+					sum+= mid;    //미드값을 
 				}else {
 					sum+= budgets[i]; // 값이 미드값보다 작으면 값을 넣어줌
 				}
@@ -31,12 +31,12 @@ public class Price2 {
 			if (sum <= M) {  //sum이 전체 예싼을 넘지 않으면
 				min = mid + 1; 
 				answer = mid;
+				System.out.println(sum);
 			}else {
 				max = mid-1;
 			}
-			System.out.println(min);
+			System.out.println(sum+"@");
 		}
-		System.out.println(answer);
 		
 		
 	}
