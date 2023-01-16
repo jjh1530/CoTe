@@ -36,15 +36,18 @@ public class NumPair {
 		}
 		String answer = "";
 		for(int i =0; i<arr.size(); i+=2) {
+			answer +=arr.get(i);
 			for(int j =0; j<arr.get(i+1); j++) {
-				answer +=arr.get(i);
+				System.out.println(arr.get(i));
+				
 			}
 		}
 		answer = new StringBuilder(answer).reverse().toString();
-		System.out.println(answer);
 		if (answer.equals("")) {
 			answer = "-1";
 		}
+		answer = answer.replace("00", "0").replace("000", "0").replace("0000", "0");
+		
 	}
 
 }

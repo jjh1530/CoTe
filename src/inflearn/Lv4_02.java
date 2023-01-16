@@ -1,25 +1,28 @@
 package inflearn;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Scanner;
 
 public class Lv4_02 {
-	public String solution(String a, String b) {
-		String answer ="YES";
-		HashMap<Character, Integer> map = new HashMap<Character, Integer>();
-		for( char x : a.toCharArray()) {
-			map.put(x, map.getOrDefault(0, 1)+1);
-		}
-		for( char x : b.toCharArray()) {
-			if (!map.containsKey(x)|| map.get(x) ==0) { // 키 값이 다 포함되어있지 않거나 0이면
-				return "NO";
-			}
-			map.put(x, map.get(x)-1);
-		}
+	public ArrayList<Integer> solution(int n , int k, int[] arr) {
+		ArrayList<Integer> answer = new ArrayList<>();
+		HashMap<Integer, Integer> map = new HashMap<>();
 		
+		for(int i =0; i<k-1; i++) {// 3개 먼저 넣기
+			map.put(arr[i], map.getOrDefault(arr[i], 0)+1) ; 
+		}
+		int lt =0;
+		for(int rt=k-1; rt<n; rt++) {
+			map.put(arr[rt], map.getOrDefault(arr[rt], 0)+1);
+			answer.add(map.size());
+			map.put(arr[lt], map.get(arr[lt])-1);
+			if (map.get(arr[lt]) ==0) {
+				map.remove(arr[lt]);
+			}
+			lt++;
+		}
 		
 		
 		return answer;
@@ -28,9 +31,15 @@ public class Lv4_02 {
 	public static void main(String[] args) {
 		Lv4_02 T = new Lv4_02();
 		Scanner kb = new Scanner(System.in);
-		String a = kb.next();
-		String b=kb.next();
-		System.out.println(T.solution(a, b));
+		int n = kb.nextInt();
+		int k = kb.nextInt();
+		int[] arr = new int[n];
+		for(int i=0; i<n; i++){
+			arr[i]=kb.nextInt();
+		}
+		for(int x : T.solution(n, k, arr)) {
+			System.out.print( x + " ");
+		}
 	}
 }
 

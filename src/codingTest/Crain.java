@@ -12,23 +12,21 @@ public class Crain {
 						{4,2,4,4,2},
 						{3,5,1,3,1}};
 		int[] moves = {1,5,3,5,1,2,1,4};
-		Stack<Integer> stack = new Stack<>();
-		int answer =0;
-		stack.push(0);
 		
-		for(int i =0; i<moves.length; i++) {
-			for(int j =0; j<board.length; j++) {
-				if (board[j][moves[i]-1] != 0) {
-					if (!stack.empty() && stack.peek() == board[j][moves[i]-1]) {
+		int answer =0;
+		Stack<Integer> stack =  new Stack<>();
+		
+		for(int pos : moves) {
+			for(int i =0; i<board.length; i++) {
+				if (board[i][pos-1] != 0) {
+					if (!stack.isEmpty() && board[i][pos-1] == stack.peek()) {  // 비어있지 ㅇ낳고 board의 값이 stack의 최상단과 같으면
 						answer+=2;
 						stack.pop();
-						board[j][moves[i]-1] = 0;
-						break;
-					}else{
-                        stack.push(board[j][moves[i]-1]);                      
-                        board[j][moves[i]-1] = 0;
-                        break;
-                    }
+					}else {
+						stack.push(board[i][pos-1]);
+					}
+					board[i][pos-1] = 0;
+					break;
 				}
 			}
 		}
