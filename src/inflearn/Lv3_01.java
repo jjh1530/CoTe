@@ -20,6 +20,7 @@ public class Lv3_01 {
 			}
 			
 		}
+		/*
 		while(p1<n) {
 			answer.add(a[p1]);
 			p1++;
@@ -28,7 +29,7 @@ public class Lv3_01 {
 			answer.add(b[p2]);
 			p2++;
 		}
-		/*
+		
 		int[] arr = new int[n+m];
 		
 		for(int i =0; i<n; i++) {
