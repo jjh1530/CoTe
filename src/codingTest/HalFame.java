@@ -3,6 +3,9 @@ package codingTest;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.PriorityQueue;
 
 public class HalFame {
 
@@ -11,21 +14,22 @@ public class HalFame {
 		int[] score = {10, 100, 20, 150, 1, 100, 200};
 		int k = 3;
 		int[] answer =new int[score.length];
-		ArrayList<Integer> temp = new ArrayList<>();
-		for(int i =0; i<score.length; i++) {
-			if (temp.size() < k) {  
-				temp.add(score[i]);
-			}else {
-				
-			}
-		}
-		
-		for(int i =0; i<answer.length; i++) {
-			System.out.println(answer[i]);
-		}
-		
-		
-		
-	}
+		PriorityQueue<Integer> priorityQueue = new PriorityQueue<>();
 
+
+        for(int i = 0; i < score.length; i++) {
+            priorityQueue.add(score[i]); 
+           
+            if (priorityQueue.size() > k) {
+                priorityQueue.poll();
+            }
+            answer[i] = priorityQueue.peek();
+        }
+      //  for(int x : priorityQueue) {
+        	//System.out.println(x); // 1 v10 20 150 100 100 200
+       // }
+        for(int x : answer) {
+        	System.out.println(x);
+        }
+	}
 }

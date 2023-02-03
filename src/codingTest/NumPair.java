@@ -4,13 +4,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Stack;
 
 public class NumPair {
 
 	public static void main(String[] args) {
 		//°ãÄ¡´Â ¼ö 3 2 1
-		String X = "100";
-		String Y ="203045";
+		String X = "120000";
+		String Y ="20304500";
+		
 		int[] a = new int[10];
 		int[] b = new int[10];
 		ArrayList<Integer> arr = new ArrayList<Integer>();
@@ -34,20 +36,20 @@ public class NumPair {
 				}
 			}
 		}
-		String answer = "";
+		StringBuilder answer =  new StringBuilder();
 		for(int i =0; i<arr.size(); i+=2) {
-			answer +=arr.get(i);
 			for(int j =0; j<arr.get(i+1); j++) {
-				System.out.println(arr.get(i));
-				
+				answer.append(arr.get(i));
 			}
 		}
-		answer = new StringBuilder(answer).reverse().toString();
-		if (answer.equals("")) {
-			answer = "-1";
+		answer = answer.reverse();
+		String ans = answer.toString();
+		if (ans.equals("")) {
+			ans = "-1";
+		}else if (ans.startsWith("0")) {
+			ans = "0";
 		}
-		answer = answer.replace("00", "0").replace("000", "0").replace("0000", "0");
-		
+        System.out.println(ans);
 	}
 
 }
