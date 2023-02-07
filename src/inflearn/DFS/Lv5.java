@@ -1,4 +1,4 @@
-package inflearn.lv7;
+package inflearn.DFS;
 
 class Node {
 	int data;
